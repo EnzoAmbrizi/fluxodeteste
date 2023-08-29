@@ -8,9 +8,9 @@ use App\Models\{CentroCusto, Lancamento, User};
 class CentroCustoController extends Controller
 {
 
-    public function index(int $id)
+    public function index()
     {
-        $centroCustos = CentroCusto::orderBy('centro_custo');
+        $centroCustos = CentroCusto::orderBy('centro_custo')->paginate(10);
         return view('centro.index')->with(compact('centroCustos'));
     }
 
